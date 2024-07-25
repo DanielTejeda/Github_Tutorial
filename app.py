@@ -36,24 +36,28 @@ st.header(':blue[Introduction to Databases]')
 st.subheader("🐥💻 Web Applications")
 st.text("My First web page in a few lines")
 
+# Checkbox input
 option = st.selectbox(
   'How would you like to be contacted?',
   ('Email', 'Home phone', 'Mobile phone'))
 
 st.write('You selected:', option)
 
+# Load data input
 df = pd.read_csv('Sample Superstore Data.csv')
 if st.button('Load data'):
   st.write(df)
 else:
   st.info('👆 Click on the button ')
 
+# Show statistics
 if st.button('Show descriptive statistics analysis'):
   result = df.describe()
   st.write(result)
 else:
   st.info('👆 Click on the button ')
 
+# CALCULATING TAG VALUES
 sidebar = st.sidebar
 with sidebar:
    regions = df['Region'].unique()
@@ -81,7 +85,7 @@ total_customers = df["Customer ID"].nunique()
 #st.metric(label="Number of Customers", value=total_customers)
 
 
-
+# SETTING TAG VALUES
 col1, col2, col3, col4= st.columns(4)
 
 with col1:
@@ -244,6 +248,7 @@ with col_stack:
       st.write(sales_by_year)
 
 
+# INPUT AT THE END
 #Other compontents to test out
 st.checkbox('yes')
 st.button('Click')
